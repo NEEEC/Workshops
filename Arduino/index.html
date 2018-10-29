@@ -1,0 +1,2244 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width; height=device-height;">
+        <style>
+            body{
+				padding-bottom: 100px;
+                font-family: "Raleway", sans-serif;
+            }
+            .Center{
+                text-align: center;
+            }
+            .Header{
+                font-size: 35px;
+                margin: auto;
+                text-align: center;
+            }
+            .IconImage{
+                width: 100px;
+                height: 100px;
+                vertical-align: middle;
+            }
+            .Anchor{
+                text-decoration: none;
+            }
+            .title{
+                font-weight: 100;
+            }
+            .SmallText{
+                font-size: 15px;
+            }
+            .NormalText{
+                font-size: 25px;
+            }
+            .BigText{
+                font-size: 40px;
+            }
+            .CodeBlock{
+                margin: 10px;
+                background-color: rgb(220,220,250);
+                width: 100%;
+                min-height: 40px;
+                border-style: solid;
+                border-color: rgb(210,210,250);
+                border-width: 2px;
+                color: black;
+                font-size: 18px;
+            }
+            .CodeBlockTitle{
+                text-shadow: none;
+                text-align: center;
+                font-size: 40px;
+                font-weight: bold;
+                color: rgb(200,200,250);
+            }
+            .left{
+                margin-left: 20px;
+            }
+            .Code{
+                color: black;
+                min-width: 500px;
+            }
+            .Comment{
+                float: right;
+                margin-right: 10px;
+            }
+            #ToTopButton{
+                padding: 10px;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                display: none;
+            }
+            #AutoScroll{
+                padding: 10px;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                display: none;
+            }
+            .ButtonDiv{
+                max-width: 90%;
+            }
+            .Zoomable{
+                width: 100%;
+                height: 100%;
+                background-image: url(Resources/imgs/Zoom_Icon.png);
+                background-size: 0px 0px;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                transition:all 0.2s;
+                -webkit-transition:all 0.2s;
+                -o-transition:all 0.2s;
+                -moz-transition:all 0.2s;
+                z-index: 10;
+                cursor: pointer;
+            }
+            .Zoomable:hover{
+                background-color: rgba(0,0,0,0.5);
+                background-size: 90% 90%;
+            }
+            .Image:hover{
+                opacity: 0.5;
+                filter: alpha(opacity=50);
+            }
+            .Image{
+                width: auto;
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+                z-index: -10;
+            }
+            #Zoomed{
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                background-color: rgb(0,0,0,0.8);
+                position: fixed;
+                top: 0px;
+                left: 0px;
+            }
+            #ZoomedImage{
+                background-color: white;
+                display: block;
+                margin: auto;
+                width: 60%;
+                height: auto;
+                min-width: 100px;
+            }
+            .None{
+                animation : none;
+                animation-delay : 0;
+                animation-direction : normal;
+                animation-duration : 0;
+                animation-fill-mode : none;
+                animation-iteration-count : 1;
+                animation-name : none;
+                animation-play-state : running;
+                animation-timing-function : ease;
+                backface-visibility : visible;
+                background : 0;
+                background-attachment : scroll;
+                background-clip : border-box;
+                background-color : transparent;
+                background-image : none;
+                background-origin : padding-box;
+                background-position : 0 0;
+                background-position-x : 0;
+                background-position-y : 0;
+                background-repeat : repeat;
+                background-size : auto auto;
+                border : 0;
+                border-style : none;
+                border-width : medium;
+                border-color : inherit;
+                border-bottom : 0;
+                border-bottom-color : inherit;
+                border-bottom-left-radius : 0;
+                border-bottom-right-radius : 0;
+                border-bottom-style : none;
+                border-bottom-width : medium;
+                border-collapse : separate;
+                border-image : none;
+                border-left : 0;
+                border-left-color : inherit;
+                border-left-style : none;
+                border-left-width : medium;
+                border-radius : 0;
+                border-right : 0;
+                border-right-color : inherit;
+                border-right-style : none;
+                border-right-width : medium;
+                border-spacing : 0;
+                border-top : 0;
+                border-top-color : inherit;
+                border-top-left-radius : 0;
+                border-top-right-radius : 0;
+                border-top-style : none;
+                border-top-width : medium;
+                bottom : auto;
+                box-shadow : none;
+                box-sizing : content-box;
+                caption-side : top;
+                clear : none;
+                clip : auto;
+                color : inherit;
+                columns : auto;
+                column-count : auto;
+                column-fill : balance;
+                column-gap : normal;
+                column-rule : medium none currentColor;
+                column-rule-color : currentColor;
+                column-rule-style : none;
+                column-rule-width : none;
+                column-span : 1;
+                column-width : auto;
+                content : normal;
+                counter-increment : none;
+                counter-reset : none;
+                cursor : auto;
+                direction : ltr;
+                display : inline;
+                empty-cells : show;
+                float : none;
+                font : normal;
+                font-family : inherit;
+                font-size : medium;
+                font-style : normal;
+                font-variant : normal;
+                font-weight : normal;
+                height : auto;
+                hyphens : none;
+                left : auto;
+                letter-spacing : normal;
+                line-height : normal;
+                list-style : none;
+                list-style-image : none;
+                list-style-position : outside;
+                list-style-type : disc;
+                margin : 0;
+                margin-bottom : 0;
+                margin-left : 0;
+                margin-right : 0;
+                margin-top : 0;
+                max-height : none;
+                max-width : none;
+                min-height : 0;
+                min-width : 0;
+                opacity : 1;
+                orphans : 0;
+                outline : 0;
+                outline-color : invert;
+                outline-style : none;
+                outline-width : medium;
+                overflow : visible;
+                overflow-x : visible;
+                overflow-y : visible;
+                padding : 0;
+                padding-bottom : 0;
+                padding-left : 0;
+                padding-right : 0;
+                padding-top : 0;
+                page-break-after : auto;
+                page-break-before : auto;
+                page-break-inside : auto;
+                perspective : none;
+                perspective-origin : 50% 50%;
+                position : static;
+                /* May need to alter quotes for different locales (e.g fr) */
+                quotes : '\201C' '\201D' '\2018' '\2019';
+                right : auto;
+                tab-size : 8;
+                table-layout : auto;
+                text-align : inherit;
+                text-align-last : auto;
+                text-decoration : none;
+                text-decoration-color : inherit;
+                text-decoration-line : none;
+                text-decoration-style : solid;
+                text-indent : 0;
+                text-shadow : none;
+                text-transform : none;
+                top : auto;
+                transform : none;
+                transform-style : flat;
+                transition : none;
+                transition-delay : 0s;
+                transition-duration : 0s;
+                transition-property : none;
+                transition-timing-function : ease;
+                unicode-bidi : normal;
+                vertical-align : baseline;
+                visibility : visible;
+                white-space : normal;
+                widows : 0;
+                width : auto;
+                word-spacing : normal;
+                z-index : auto;
+                /* basic modern patch */
+                all: initial;
+                all: unset;}
+        </style>
+        <script>
+            var h = Math.max((document.documentElement.clientHeight, window.innerHeight)*1 || 0);
+            var Scroll = 0;
+            var Stuck = 0;
+            function Appear(Button, Div, Message){
+                document.getElementById(Div).innerHTML = Message;
+                document.getElementById(Button).remove();
+            }
+            function ToTop(){
+                document.body.scrollTop = 0; // For Chrome, Safari and Opera
+                document.documentElement.scrollTop = 0;
+            }
+            function ScrollTo(){
+                document.body.scrollTop = Scroll; // For Chrome, Safari and Opera
+                document.documentElement.scrollTop = Scroll;
+            }
+            function CheckScroll(){
+                if(window.pageYOffset > h || Scroll > h*2){
+                    if(Scroll < window.pageYOffset){
+                        Scroll = window.pageYOffset;
+                    }
+                    if(window.pageYOffset < Scroll-400){
+                        document.getElementById("AutoScroll").style.display = "block";
+                    }else{
+                        document.getElementById("AutoScroll").style.display = "none";
+                     }
+                }
+                if(!Stuck && window.pageYOffset>h/2){
+                    document.getElementById("ToTopButton").style.display = "block";
+                    Stuck = 1;
+                }else if(Stuck && window.pageYOffset<h/2){
+                    document.getElementById("ToTopButton").style.display = "none";
+                    Stuck = 0;
+                }
+            }
+            function Delete(El){
+                while (El.firstChild) {
+                    El.removeChild(El.firstChild);
+                }
+                El.remove();
+                document.getElementsByTagName('body')[0].style.overflowY = 'visible';
+            }
+            function Zoom(Image){
+                var ADiv = document.createElement('div');
+                ADiv.id = 'Zoomed';
+                ADiv.setAttribute("onclick", "Delete(Zoomed)");
+                ADiv.style.backgroundImage = "Resources/imgs/"+Image;
+                ADiv.innerHTML = '<img src = "Resources/imgs/'+Image+'" id = "ZoomedImage" style = "width: 100%; height: 100%;">';
+                document.getElementsByTagName('body')[0].appendChild(ADiv);
+                document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+            }
+        </script>
+    </head>
+    <body onscroll = "CheckScroll()">
+		<a href = "https://neeec.fe.up.pt">
+			<div style = "border-bottom: 1px; height: 120px; position: fixed; bottom: 0; left: 0; padding: 5px;">
+				<img src = "Resources/imgs/neeec.png" style = "width: 90px; height: 90px; opacity: 0.8">
+				<b><p style = "height: 10px;position: relative; left: 15px; bottom: 10px; color: rgb(140, 45, 25);">NEEEC</p></b>
+			</div>
+		</a>
+        <button id = "ToTopButton" onclick = "ToTop()">To Top</button>
+        <button id = "AutoScroll" onclick = "ScrollTo()">Continue</button>
+        <h2>Arduino Workshop - Núcleo de Estudentes de Engenharia Eletrotécnica e Computadores - FEUP</h2>
+		<!--
+        <h3>Introduction</h3>
+        <p>Throughout this workshop, you will learn the basics on how to control an Arduino using C.</p>
+        <p>The contents of each part are as follows.</p>
+        <ol>
+            <li><a  class = "Anchor" href ="#A0">First Part (Inputs, Outputs and Serial Communication)</a>
+                <ul><b><a  class = "Anchor" href ="#A1">Programming:</a></b>
+                    <li><a  class = "Anchor" href ="#A1">C Basics</a></li>
+                    <ul>
+                        <li><a class = "Anchor" href = "#A2">Variables</a></li>
+                        <li><a class = "Anchor" href = "#A3">Arithmetic Operations</a></li>
+                        <li><a class = "Anchor" href = "#A4">Logic Operations and Conditionals (if/else)</a></li>
+                        <li><a class = "Anchor" href = "#A5">Loops (while/do while/for)</a></li>
+                        <li><a class = "Anchor" href = "#A6">Functions</a></li>
+                    </ul>
+                    <li><a  class = "Anchor" href ="#A7">Basic Arduino Specific Functions</a></li>
+                </ul>
+                <ul><b><a  class = "Anchor" href ="#A8">Circuitry:</a></b>
+                    <li><a  class = "Anchor" href ="#A9">Breadboards</a></li>
+                    <li><a  class = "Anchor" href ="#A10">Jumper Wires</a></li>
+                    <li><a  class = "Anchor" href ="#A11">Resistors</a></li>
+                    <li><a  class = "Anchor" href ="#A12">LEDs</a></li>
+                    <li><a  class = "Anchor" href ="#A13">First Circuit</a></li>
+                    <li><a  class = "Anchor" href ="#A14">Buttons</a></li>
+                    <li><a  class = "Anchor" href ="#A15">Second Circuit</a></li>
+                    <li><a  class = "Anchor" href ="#A16">PWM</a></li>
+                    <li><a  class = "Anchor" href ="#A17">7 Segment Digit</a></li>
+                </ul>
+            </li>
+            <li><a  class = "Anchor" href ="#">Second Part:           not done</a>
+                <ul><b><a  class = "Anchor" href ="#">Circuitry:</a></b>
+                    <li><a  class = "Anchor" href ="#">Temperature Sensor</a></li>
+                    <li><a  class = "Anchor" href ="#">Ultrasonic distance sensor</a></li>
+                    <li><a  class = "Anchor" href ="#">Stepper Motors (com L298N)</a></li>
+                </ul>
+            </li>
+        </ol>
+-->
+        <div style = "padding: 20px;" id = "A0">
+            <table style = "width: 100%;" cellspacing = "50">
+                <tr>
+                    <td colspan = "2">
+                        <h3 class = "Header">First Part</h3>
+                    </td>
+                </tr>
+                <tr id = "A1">
+                    <td colspan = "2">
+                        <h3 class = "Center title BigText">Programming</h3>
+                        <font class = "title NormalText">C basics</font>
+                        <p>
+                            C is one of the most commonly used programming languages. In order to be able to use an Arduino, you just need to know a few basics such as Variables, Conditions and Loops specific to the C language and the C Arduino functions that take care of Input, Output, and delay.
+                            <br/>
+                            In C, every line ends with either a <b>;</b> for statements of <b>{}</b> for structures (such as conditions or loops).
+                            <br/>
+                            When you want to write text on your code (comment it) you can't just write it because it will be treated as code. Therefore use // to specify a line comment or the <b>/* and */</b> delimeters to write multi line comments.
+                            <br/>
+                            First, lets talk about the C specific code.
+                            <br/>
+                        </p>
+                        <div class = "None" id = "A2">
+                            <font class = "title NormalText">Variables</font>
+                            <br/>
+                            A variable is a named container for a certain value.
+                            <br/>
+                            Variable names must start with a letter and cannot contain special characters (such as !"#$%...).
+                            <br/>
+                            C variables can only hold numbers, some of which can be interpreted as letters (char).
+                            <br/>
+                            Variables should have significant, but short names (L1 instead of LED1 for example). In this workshop, variables will have long, names so as to prevent confusion.
+                            <br/>
+                            In this workshop, we are only interested in talking about the following variable types:
+                            <ul>
+                                <li>Integer (int): -32,768 to 32,767 (2 bytes) or -2,147,483,648 to 2,147,483,647  (4 bytes) (Arduino UNO uses 2 byte int's)</li>
+                                <li>Boolean (bool): 0 and 1 or False and True</li>
+                                <li>Float (float): (4 byte) 3.4E-38 to 3.4E+38 6 decimal place precision</li>
+                            </ul>
+                            <p>
+
+                            </p>
+                            <p>
+                                Like many languages, before you use a variable to store a value, you need to initialize it. This means telling the computer to search for enough available memory for that variable type, reserve it and link that space to the variable name.
+                                <br/>
+                                For every type, you can instead of using a normal variable, use an <b>array</b>. Arrays act as "containers" for variables
+                                <br/>
+                                Variable Initialization and usage example:
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Normal C Code</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                            <li>
+                                                <span class = "left">int Var1;</span>
+                                            </li>
+                                            <li>
+                                                <span class = "left">Var1 = 3;</span>
+                                            </li>
+                                            <li></li>
+                                            <li>
+                                                <span class = "left">float Var2 = 4.0503;</span>
+                                            </li>
+                                            <li>
+                                                <span class = "left">bool Var3 = 0;</span>
+                                            </li>
+                                            <li>
+                                                <span class = "left">int Var4[4];</span>
+                                            </li>
+                                            <li>
+                                                <span class = "left">int Var4[0] = 2;</span>
+                                            </li>
+                                            <li>
+                                                <span class = "left"></span>
+                                            </li>
+                                            <li>
+                                                <span class = "left">int Var5 = {0,2,5,-2};</span>
+                                            </li>
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        //Var 1 is initialized. It's value is unknown but possibly not null.
+                                        <br/>
+                                        //Var 1 is attributed the value 3.
+                                        <br/>
+                                        //After being initialized you should only reference the variable by name. Do not use "int" again.
+                                        <br/>
+                                        //When you initialize a variable you can set a value immediately
+                                        <br/>
+                                        //Certain variable types have default values (bool is 0) but it is always better to be sure.
+                                        <br/>
+                                        //This is an array initialized with size 4
+                                        <br/>
+                                        //This is how you can access an array element. It is important to note that a size 4 array
+                                        <br/>
+                                        //Has the positions 0 to 3, not 1 to 4 nor 0 to 4. Always start counting from 0.
+                                        <br/>
+                                        //You can also initialize an array directly with values
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class = "None" id = "A3">
+                            <p>
+                                <font class = "title NormalText">Arithmetic operations</font>
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Normal C Code</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                            <li><span class = "left">int Var1 = 2;</span></li>
+                                            <li><span class = "left">int Var2 = 3;</span></li>
+                                            <li><span class = "left">int Var3 = Var1 + Var2;</span></li>
+                                            <li></li>
+                                            <li><span class = "left">float Var4 = (float)Var1/(float)Var2;</span></li>
+                                            <li></li><li></li><li></li>
+                                            <li><span class = "left">Var2 += 2;</span></li>
+                                            <li><span class = "left">Var2 -= 1;</span></li>
+                                            <li><span class = "left">Var1++;</span></li>
+                                            <li><span class = "left">Var1--;</span></li>
+
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        <br/>
+                                        <br/>
+                                        //Var3 is now an int with the value 5. The available operations are + , - , * , / and % (modulus aka division remainder)
+                                        <br/>
+                                        //C only operates with the same kind of var type so be sure to do (type)var<br/>
+                                        //(this is called parsing) to set every variable to the same type before performing operations.
+                                        <br/>
+                                        //This is equivalent to Var2 = Var 2 + 2;
+                                        <br/>
+                                        //Same goes with -= *= /= %=
+                                        <br/>
+                                        //Var1++ equals Var1 += 1; or Var1 = Var1 + 1;
+                                        <br/>
+                                        //With -- as well but thats it, no ** nor //.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class = "None" id = "A4">
+                            <p>
+                                <font class = "title NormalText">Logic operations and Conditionals</font>
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Normal C Code</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                            <li><span class = "left">bool BoolVar = 0;</span></li>
+                                            <li><span class = "left">bool BoolVar2 = True;</span></li>
+                                            <li><span class = "left">int Number = 1;</span></li>
+                                            <li><span class = "left">int Total = 0;</span></li>
+                                            <li><span class = "left">if(BoolVar || <b>(Number && BoolVar2)</b>){</span></li>
+                                            <li><span class = "left"><span class = "left">Total = 1;</span></span></li>
+                                            <li><span class = "left">}else if(!BoolVar == 1){</span></li>
+                                            <li><span class = "left"><span class = "left">Total = 2;</span></span></li>
+                                            <li><span class = "left">}else{</span></li>
+                                            <li><span class = "left"><span class = "left">Total = 3;</span></span></li>
+                                            <li><span class = "left">}</span></li>
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        //The if statement only runs the code between the {} if the condition
+                                        <br/>
+                                        //between the () is true (not null nor 0).
+                                        <br/>
+                                        //(&& => AND, || => OR) (| is not !)
+                                        <br/>
+                                        //The else statement runs only if the if statement fails.
+                                        <br/>
+                                        //You can use else if() to check another condition in case
+                                        <br/>
+                                        //the first one fails, to no limits on the amount of else if() 's.
+                                        <br/>
+                                        //In a condition, whats in between () is evaluated first
+                                        <br/>
+                                        // ! represents a not. It will invert the variables' "veracity"
+                                        <br/>
+                                        // !True = False, !False = True, !1 = 0
+                                        <br/>
+                                        //What is value stored in the Total variable by the end of the
+                                        <br/>
+                                        //program?
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "ButtonDiv" id = "Button1Div"></div>
+                                        <br/>
+                                        <button class = "Button" id = "Button1" onclick = "Appear('Button1','Button1Div','Total = 1. The first part (BoolVar) fails but the rest is true and to an OR thats enough.')">Press to find out</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class = "None" id = "A5">
+                            <p>
+                                <font class = "title NormalText">Loops</font>
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Normal C Code</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                            <li><span class = "left">int Var = 1;</span></li>
+                                            <li><span class = "left">while(Var &#8249 4){</span></li>
+                                            <li><span class = "left"><span class = "left">Var++;</span></span></li>
+                                            <li><span class = "left">}</span></li>
+                                            <li><span class = "left">for(int i = 0; i &#8249 10; i++){<span class = "left"></span></span></li>
+                                            <li><span class = "left"><span class = "left"></span>Var++;</span></li>
+                                            <li><span class = "left"><span class = "left"></span>if(Var &#8250 5){</span></li>
+                                            <li><span class = "left"><span class = "left"><span class = "left">break;</span></span></span></li>
+                                            <li><span class = "left"><span class = "left">}</span></span></li>
+                                            <li><span class = "left">}</span></li>
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        //<b>while</b> loops repeat the commands between {} while the
+                                        <br/>
+                                        //condition in the () is true.
+                                        <br/>
+                                        //<b>do{}while();</b> loops act the same but they run the code
+                                        <br/>
+                                        //once before checking the condition.
+                                        <br/>
+                                        //<b>for</b> loops are like while loops but allow the incrementation
+                                        <br/>
+                                        //(or decrementation) and initialization of the variable inside
+                                        <br/>
+                                        //the loop itself. The only problem being the variable (in this case i)
+                                        <br/>
+                                        //cannot be used outside of the loop
+                                        <br/>
+                                        //<b>break;</b> means cancel the rest of the loop
+                                        <br/>
+                                        //<b>continue;</b> means skip the rest of this iteration and start over (after
+                                        <br>
+                                        //incrementing in the case of the for)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class = "None" id = "A6">
+                            <p>
+                                <font class = "title NormalText">Functions</font>
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Normal C Code</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan = "2">
+                                        Functions are pieces of code that can be repeated by calling the name of the function with the specified parameters.
+                                        <br/>
+                                        A C programm usually requires a main function from which to start.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                        <br>
+                                            <li><span class = "left">int SomeFunction(int number){</span></li>
+                                            <li><span class = "left"><span class = "left">return number;</span></span></li>
+                                            <li><span class = "left">}</span></li>
+                                            <li><span class = "left">int Sum(int number1, int number2);</span></li>
+                                            <li></li>
+                                            <li><span class = "left">int main(){</span></li>
+                                            <li><span class = "left"><span class = "left">int Var1 = SomeFunction(1);</span></span></li>
+                                            <li><span class = "left"><span class = "left">int Var2 = 4;</span></span></li>
+                                            <li><span class = "left"><span class = "left">int Var3 = Sum(Var1, Var2);</span></span></li>
+                                            <li><span class = "left">}</span></li>
+                                            <li></li>
+                                            <li><span class = "left">int Sum(int number1, int number2){</span></li>
+                                            <li><span class = "left"><span class = "left">return number1+number2;</span></span></li>
+                                            <li><span class = "left">}</span></li>
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        <br/>
+                                        //Function header: FunctionName(Argument1, Argument2);
+                                        <br/>
+                                        //A function must be initialized before it is called.
+                                        <br/>
+                                        //An initialization can be just the header with the arguments
+                                        <br/>
+                                        //but the rest must be somewhere in the code (Sum example)
+                                        <br/>
+                                        //When a function is called, it can return a value with <b>return</b>
+                                        <br/>
+                                        //When we type int FunctionName() we are saying that the returned
+                                        <br/>
+                                        //value will be of type int
+                                        <br/>
+                                        //What is the final value of Var3?
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "ButtonDiv" id = "Button2Div"></div>
+                                        <br/>
+                                        <button class = "Button" id = "Button2" onclick = "Appear('Button2','Button2Div','Var3 = 5. Var1 becomes 1 and Var2 is 4. Var 3 becomes 1+4')">Press to find out</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class = "None" id = "A7">
+                            <p>
+                                <font class = "title NormalText">Arduino Specific Functions</font>
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Basic Arduino C Code</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan = "2">
+                                        Most arduino code is explained further ahead.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                            <li><span class = "left">void setup() {}</span></li>
+                                            <li><span class = "left">void loop() {}</span></li>
+                                            <li><span class = "left">delay(ms);</span></li>
+                                            <li><span class = "left">pinMode(PIN, OUTPUT/INPUT);</span></li>
+                                            <li><span class = "left">digitalWrite(PIN, HIGH/LOW);</span></li>
+                                            <li><span class = "left">analogWrite(PIN, VALUE);</span></li>
+                                            <li><span class = "left">digitalRead(PIN);</span></li>
+                                            <li><span class = "left">analogRead(PIN);</span></li>
+                                            <li><span class = "left">millis();</span></li>
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        //Default arduino "main" function. Use it for initializations.
+                                        <br/>
+                                        //Arduinos' continuous loop function.
+                                        <br/>
+                                        //Delay in milliseconds.
+                                        <br/>
+                                        //Set pin type for outputs or inputs.
+                                        <br/>
+                                        //Set pin to 5V or 0V.
+                                        <br/>
+                                        //Set pin to a value between 0 and 255. (PWM)
+                                        <br/>
+                                        //Read HIGH or LOW. Everything not 0 is HIGH.
+                                        <br/>
+                                        //Read values from 0 to 1023.
+                                        <br/>
+                                        //Returns current time in milliseconds (overflows after ~50 days)
+                                        <br/>
+                                        //Other functions <a target = "_blank" href = "https://www.arduino.cc/reference/en/">https://www.arduino.cc/reference/en/</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+						<div class = "None" id = "A8">
+                            <p>
+                                <font class = "title NormalText">Arduino LCD Library Specific Functions/Methods</font>
+                            </p>
+                            <table class = "CodeBlock">
+                                <tr>
+                                    <td colspan = "2">
+                                        <div class = "CodeBlockTitle">Arduino LCD Library Specific Functions/Methods</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = "Code">
+                                        <ol>
+                                            <li><span class = "left">LiquidCrystal(rs, enable, d4, d5, d6, d7);</span></li>
+                                            <li></li>
+                                            <li><span class = "left">lcd.begin(cols,rows);</span></li>
+                                            <li></li>
+                                            <li><span class = "left">lcd.clear();</span></li>
+                                            <li></li>
+                                            <li><span class = "left">lcd.setCursor(col, row);</span></li>
+                                            <li></li>
+                                            <li><span class = "left">lcd.write(data);</span></li>
+                                            <li></li>
+                                            <li><span class = "left">lcd.cursor();</span></li>
+                                            <li></li>
+                                            <li><span class = "left">lcd.createChar(num, data)</span></li>
+                                            <li></li>
+                                        </ol>
+                                    </td>
+                                    <td class = "Comment">
+                                        //Creates a LiquidCrystal variable.
+                                        <br/>
+                                        <br/>
+                                        //Initializes the interface to the LCD screen, and specifies the dimensions (width and height) of the display.
+                                        <br/>
+                                        //Clears the LCD screen and positions the cursor in the upper-left corner.
+                                        <br/>
+                                        <br/>
+                                        //Position the LCD cursor in the specified row and column.
+                                        <br/>
+                                        <br/>
+                                        //Write a character to the LCD.
+                                        <br/>
+                                        <br/>
+                                        //Display the LCD cursor: an underscore (line) at the position to which the next character will be written. 
+                                        <br/>
+                                        <br/>
+                                        //Most LCDs allow for a number of new characters (the 1602 has 8 slots) 
+                                        <br/>
+                                        //byte data[8] = {B00000,B10001,B00000,B00000,B10001,B01110,B00000,}
+                                        <br/>
+                                        //There are a few more methods available that won't be covered in this tutorial
+                                        <br/>
+                                        //Find them here: <a target = "_blank" href = "https://www.arduino.cc/en/Reference/LiquidCrystal">https://www.arduino.cc/en/Reference/LiquidCrystal</a>
+                                        <br/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr id = "A8">
+                    <td colspan = "2">
+                        <h3 class = "Center title BigText">Circuitry</h3>
+                        <p>What IS an Arduino?<br/>"Arduino is an open source computer hardware and software company, project, and user community that designs and manufactures single-board microcontrollers and microcontroller kits for building digital devices and interactive objects that can sense and control objects in the physical world."</p>
+                        <!--
+ Posted October 26, 2004
+
+microcontroller: a single-chip microcomputer with on-board program ROM and I/O that can be programmed for various control functions
+
+
+
+microcomputer: a computer that uses a microprocessor and its own memory/storage space to perform applications. also called a personal computer because it usually doesnt have the power to operate other computers. a desktop personal computer that serves a single user
+
+basically a 'normal' computer that is not a dumb terminal* and not a server
+
+
+
+*dumb termianl: a computer terminal with no processing or programming capabilities, generally used for simple data entry or retrieval tasks (all data comes from a host, normally a server) e.g. a large business or school network has a host/server computer. all the other computers around the school have no processing/programming/storage capabilities, all info retrieved from main host/server.
+
+-->
+                        <table style = "width: 100%;">
+                        <tr id = "A9">
+                            <td style = "width: 50%;">
+                                <font class = "title NormalText">
+                                    Breadboards
+                                    <img class = "IconImage" src = "Resources/imgs/BreadBoard.jpg">
+                                </font>
+                                <br/>
+                                <p>A breadboard is a construction base for prototyping electronics. Originally it was literally a bread board, a polished piece of wood used for slicing bread. In the 1970s the solderless breadboard (AKA plugboard, a terminal array board) became available and nowadays the term "breadboard" is commonly used to refer to these.
+                                Standard Breadboard connections are as is shown in the picture</p>
+                            </td>
+                            <td class = "Center">
+                                Plugboard
+                                <div class = "Zoomable" onclick = "Zoom('PlugBoard.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/PlugBoard.jpg">
+                                </div>
+                                Breadboard Connections
+                                <div class = "Zoomable" onclick = "Zoom('BreadBoardConnections.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/BreadBoardConnections.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A10">
+                            <td>
+                                <font class = "title NormalText">
+                                    Jump Wire
+                                    <img class = "IconImage" src = "Resources/imgs/JumperWires.jpg">
+                                </font>
+                                <p>
+                                A jump wire (also known as jumper, jumper wire, jumper cable), is normally used to interconnect the components of a breadboard or other prototype or test circuit, internally or with other equipment or components, without soldering.</p>
+                            </td>
+                            <td class = "Center">
+                                Crocodile Jumper Wires
+                                <div class = "Zoomable" onclick = "Zoom('CrocodileJumperWire.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/CrocodileJumperWire.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A11">
+                            <td>
+                                <font class = "title NormalText">Resistor
+                                    <img class = "IconImage" src = "Resources/imgs/Resistor.jpg">
+                                </font>
+                                <p>Resistors are common passive circuit elements, that are used to <b>manipulate current and voltage through their resistance (V=IR)</b> and therefore are used in most, if not all, kinds of circuits. The 3rd significant figure in a resistor color code does not exist in the majority of resistors.
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                Resistor Chart
+                                <div class = "Zoomable" onclick = "Zoom('ResistorFunction.png');">
+                                    <img class = "Image" src = "Resources/imgs/ResistorFunction.png">
+                                </div>
+                                Resistor Composition
+                                <div class = "Zoomable" onclick = "Zoom('ResistorInside.gif');">
+                                    <img class = "Image" src = "Resources/imgs/ResistorInside.gif">
+                                </div>
+                            </td>
+                        </tr>
+						<tr id = "A10">
+                            <td style = "width: 50%;">
+                                <font class = "title NormalText">
+                                    Potentiometer
+                                    <img class = "IconImage" src = "Resources/imgs/Pot.png">
+                                </font>
+                                <br/>
+                                <p>A potentiometer is a three-terminal resistor that provides a voltage divider. They're usually used for analog-type circuit inputs, such as volume controls (radio), position detection (joystick), and such.</p>
+                            </td>
+                            <td class = "Center">
+                                Potentiometer construction
+                                <div class = "Zoomable" onclick = "Zoom('Potentiometers-Construction.png');">
+                                    <img class = "Image" src = "Resources/imgs/Potentiometers-Construction.png">
+                                </div>
+                                Joystick
+                                <div class = "Zoomable" onclick = "Zoom('Joystick.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/Joystick.jpg">
+                                </div>
+                                Linear Potentiometer
+                                <div class = "Zoomable" onclick = "Zoom('LinearPot.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/LinearPot.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A12">
+                            <td>
+                                <font class = "title NormalText">
+                                    Light-emitting Diode (LED)
+                                </font>
+                                <p>
+                                    LEDs' are, as the name states, <b>diodes</b>. A diode is a two piece component that <b>eases current flow in one direction (+ -> -)</b> presenting little resistance, while <b>blocking current flowing the opposite direction (- -> +)</b> with great resistance. (As with every component, a diode has its limits and if the current is too much, it may not be able to block it and will either short-circuit or "burst open").
+                                    <br/>
+                                    Unlike other diodes, when supplied with sufficient voltage LEDs also emit light. <br/>
+                                    LEDs have many advantages over incandescent light sources, including lower energy consumption, longer lifetime, improved physical robustness, smaller size, and faster switching.
+                                    <b>Usually, LEDs' require a current of 20mA and voltage in-between 1.8V and 3.3V but the LED's manufacturers' datasheet should be used to get these values. </b>
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                <div class = "Zoomable" onclick = "Zoom('LEDInterior.png');">
+                                    <img class = "Image" src = "Resources/imgs/LEDInterior.png">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('LEDDiodeGraph.png');">
+                                    <img class = "Image" src = "Resources/imgs/LEDDiodeGraph.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "UsingA11">
+                            <td>
+                                <font class = "title NormalText">Using a Resistor with an LED</font>
+                                <p>
+                                    Resistors are used to <b>control current, and therefore the voltage drop across the LED</b> and can be compared to a water valve. Following <b>Ohm's Law (V = I * R)</b> we can see that for the same current, if we have a bigger voltage, all we need to do is provide a larger resistance. (Pressure/Flow analogy)
+                                    <br/>
+
+                                </p>
+                            </td>
+                            <td>
+                                <table class = "Center">
+                                    <tr>
+                                        <td colspan = "2">
+                                            Pressure/Flow analogy
+                                            <div class = "Zoomable" onclick = "Zoom('ResistanceAnalogy.png');">
+                                                <img class = "Image" src = "Resources/imgs/ResistanceAnalogy.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style = "width: 50%;">
+                                            <div class = "Zoomable" onclick = "Zoom('SeriesResistor.png');">
+                                                <img class = "Image" src = "Resources/imgs/SeriesResistor.png">
+                                            </div>
+                                            <font class = "SmallText">Req = R1 + R2 + ... + Rn</font>
+                                        </td>
+                                        <td>
+                                            <div class = "Zoomable" onclick = "Zoom('ParallelResistor.png');">
+                                                <img class = "Image" src = "Resources/imgs/ParallelResistor.png">
+                                            </div>
+                                            <font class = "SmallText">1/Req = 1/R1 + 1/R2 + ... + 1/Rn</font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr id = "A13">
+                            <td colspan = "2">
+                                <table>
+                                    <tr>
+                                        <td style = "width: 50%;">
+                                            <b>Practical Circuit Example:</b>
+                                            <br/>
+                                            An LEDs' maximum current is usually about 20mA (0.020 A) and requires anywhere from 1.8V to 3.3V depending on the LED (differente color/wave lengths require different power).
+                                            <br/>
+                                            Knowing that the LED consumes about 2V and requires a maximum of 20mA, we can conclude that through V = I*R, its resistance will be of aproximately 100 Ohms.
+                                            <br/>
+                                            Since we want the current to be about 20mA, and knowing that the supply is 5V, we can derive that the total resistance will have to equal 250 Ohms (5/0.02).
+                                            <br/>
+                                            Therefore the resistor in use will have to be of 150 Ohms (250-100).
+                                            Bare in mind that these are maximum values. LEDs will work up to 20mA and the respective voltage. Lower values will work to a certain degree and will be used just to make sure no material is damaged.
+                                        </td>
+                                        <td>
+                                            <div class = "Zoomable" onclick = "Zoom('LedCircuit.png');">
+                                                <img class = "Image" src = "Resources/imgs/LedCircuit.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan = "2">
+                                <b>LED blink code</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">int Blinking_Led = 8;</span></li>
+                                                <li><span class = "left">void setup() {</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(Blinking_Led , OUTPUT);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop() {</span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(Blinking_Led , HIGH);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(100);</span></span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(Blinking_Led , LOW);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(100);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            <br/>
+                                            //Prepare Arduino to use PIN 8 (Blinking_Led) as an output
+                                            <br/>
+                                            //In case it isn't used, Arduino won't be able to enable 5V (approximately 2V for this circuit in case of error).
+                                            <br/>
+                                            //Activate PIN 8
+                                            <br/>
+                                            //Wait 100 ms
+                                            <br/>
+                                            //Deactivate PIN 8
+                                            <br/>
+                                            //Wait 100 ms
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <font id = "A14" class = "title NormalText">Button
+                                    <img class = "IconImage" src = "Resources/imgs/Buttons.jpg">
+                                </font>
+                                <p>Buttons are very usefull. They allow users to provide input to the circuit. (You could also simply cut the power flow with a button, but this way we also test input)
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                <img class = "Image" src = "Resources/imgs/Button.png">
+                                <div class = "Zoomable" onclick = "Zoom('ButtonLedCircuit.png');">
+                                    <img class = "Image" src = "Resources/imgs/ButtonLedCircuit.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A15">
+                            <td colspan = "2">
+                                <b>Button Input code</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">int LED = 8;</span></li>
+                                                <li><span class = "left">int Button = 7;</span></li>
+                                                <li><span class = "left">void setup(){</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(LED, OUTPUT);</span></span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(Button, INPUT);</span></span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(LED, LOW);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop(){</span></li>
+                                                <li><span class = "left"><span class = "left">if(digitalRead(Button) == HIGH){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">digitalWrite(LED, HIGH);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}else{</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">digitalWrite(LED, LOW);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Set PIN 7 to work as INPUT
+                                            <br/>
+                                            //Start PIN 8 as LOW
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //digitalRead(PIN); Reads wether the PIN is at 0V (LOW) or not.
+                                            <br/>
+                                            //That is why we need to connect it to ground so that when
+                                            <br/>
+                                            //the button is not pressed we can be sure that it is at 0V
+                                            <br/>
+                                            //Try not connecting to ground and approaching the wires with
+                                            <br/>
+                                            //your fingers
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "ButtonDiv" id = "Button3Div"></div>
+                                            <br/>
+                                            <button class = "Button" id = "Button3" onclick = "Appear('Button3','Button3Div','Depending on how you built the circuit, theres a good chance that when your finger approached the wires or button, the LED turned on. This is due to the residual tension that is everywhere.')">What happened?</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+						<tr>
+                            <td>
+                                <font id = "A14" class = "title NormalText">Pull-Ups and Pull-Downs
+                                    <img class = "IconImage" src = "Resources/imgs/Pull-Up-Pull-Down.jpg">
+                                </font>
+                                <p>
+									In the previous exercise, we added a pull-down resistor to the circuit.
+									<br/>
+									This was done so that we could be sure that, when the button was not pressed, the voltage was the reference (0V).
+									<br/>
+									Otherwise, we would have what is called a floating pin when the button was disconnected, which means we cannot assert the voltage level and therefore cannot make a correct measurement (this is not a big problem when talking about digital since the probability that the floating pin will reach a tension level high enough to overcome the defined threshold is very low).
+									<br/>
+									Pull-Up - Asserted voltage is the source voltage.
+									<br/>
+									Pull-Down - Asserted voltage is the reference voltage.
+									<br/>
+									<br/>
+									<a target = "_blank" href = "https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/">https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/</a>
+									<br/>
+									<br/>
+									Most arduinos' provides an internal Pull-Up that can be activated by setting
+									<br/>
+									pinMode(Button, INPUT_PULLUP);
+									<br/>
+									<br/>
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                <div class = "Zoomable" onclick = "Zoom('Pull-Up-Pull-Down.png');">
+                                    <img class = "Image" src = "Resources/imgs/Pull-Up-Pull-Down.png">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('TTL_Acceptable_Voltage.png');">
+                                    <img class = "Image" src = "Resources/imgs/TTL_Acceptable_Voltage.png">
+                                </div>
+                            </td>
+                        </tr>
+						<tr id = "A15">
+                            <td colspan = "2">
+                                <b>Inner Pull-Up activation</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">int LED = 8;</span></li>
+                                                <li><span class = "left">int Button = 7;</span></li>
+                                                <li><span class = "left">void setup(){</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(LED, OUTPUT);</span></span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(Button, INPUT_PULLUP);</span></span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(LED, LOW);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop(){</span></li>
+                                                <li><span class = "left"><span class = "left">if(digitalRead(Button) == HIGH){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">digitalWrite(LED, HIGH);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}else{</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">digitalWrite(LED, LOW);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Set PIN 7 to work as INPUT with a pull-up
+                                            <br/>
+                                            //Try putting a circuit together that works like the previous one
+                                            <br/>
+                                            //Just remember that now there is a resistor connected to the pin
+                                            <br/>
+											//and to the source voltage (+5V)
+                                            <br/>
+											//This type of logic is called inverted logic
+                                            <br/>
+											//Since the value goes to 0 when the button is pressed and not the
+                                            <br/>
+											//other way around.
+                                            <br/>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+							<td>
+								<h3 class = "Center title BigText">Communication</h3>
+							</td>
+                        </tr>
+							<tr id = "A16">
+                            <td>
+                            <font class = "title NormalText">
+                                    Serial Communication
+                            </font>
+                            <p>
+								Serial communication allows packages to be switched (usually in bytes) by sending the bits, not in parallel, since that would require multiple lines of communication, but through one wire, 1 bit at the time according to a pre-defined frequency.
+								<br/>
+								To learn more, there are several resources available online (such as this one, made by Professor Hélio Mendonça, FEUP <a href = "https://paginas.fe.up.pt/~hsm/docencia/comp/uart/">
+								https://paginas.fe.up.pt/~hsm/docencia/comp/uart/
+								</a>)
+                            </p>
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('Interface.png');">
+                                    <img class = "Image" src = "Resources/imgs/Interface.png">
+                                </div>
+								Example of an arduino communicating with another arduino through Serial (Tx -> Rx, Transmitter to Receiver)
+                                <div class = "Zoomable" onclick = "Zoom('Arduino_Serial.png');">
+                                    <img class = "Image" src = "Resources/imgs/Arduino_Serial.png">
+                                </div>
+                            </td>
+                        </tr>
+						<tr id = "A16">
+                            <td>
+                            <font class = "title NormalText">
+                                    Arduino Serial Monitor
+                            </font>
+                            <p>
+								The Arduino IDE provides a neat screen for monitoring the provided Serial Port.
+								<br/>
+								The Arduino.h library provides an easy way to start read a port at a certain frequency, read the incoming stream and outputting accordingly.
+                            </p>
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('ArduinoSerial.png');">
+                                    <img class = "Image" src = "Resources/imgs/ArduinoSerial.png">
+                                </div>
+                            </td>
+                        </tr>
+						<tr id = "A15">
+                            <td colspan = "2">
+                                <b>Serial Example</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">#include &ltArduino.h&gt</span></li>
+                                                <li><span class = "left">char Input;</span></li>
+                                                <li><span class = "left">void setup(){</span></li>
+                                                <li><span class = "left"><span class = "left">Serial.begin(9600);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop(){</span></li>
+                                                <li><span class = "left"><span class = "left">if(Serial.available()){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">Serial.print("Received: ");</span></span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">Serial.println((char)Serial.read());</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Start listening to the stream with a certain bitrate
+                                            <br/>
+                                            <br/>
+                                            //Try putting a circuit together that works like the previous one
+                                            <br/>
+                                            //Just remember that now there is a resistor connected to the pin
+                                            <br/>
+											//and to the source voltage (+5V)
+                                            <br/>
+											//This type of logic is called inverted logic
+                                            <br/>
+											//Since the value goes to 0 when the button is pressed and not the
+                                            <br/>
+											//other way around.
+                                            <br/>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr id = "A16">
+                            <td>
+                            <font class = "title NormalText">
+                                    Pulse-Width Modulation (PWM)
+                            </font>
+                            <p>
+                                PWM is a modulation technique used to encode a message into a pulsing signal.
+                                <br/>
+                                In the graph, the duty cycle is the ammount of time the wave is non zero (since we are working with a square wave, 5V (ON) or 0V (OFF)) and therefore, if applied to the LED, the percentage of time it will be ON.
+                                <br/>
+                                We can get this number by dividing the ammount of time the LED is turned on by the total pulse period, times a hundred.
+                                <br/>
+                                After aproximately 60 hertz, the human eye can no longer tell the difference between a light switching on and off at such frequency and a continuous light source.
+								<br/>
+								The higher the duty cycle, the more power the wave contains.
+								<br/>
+								<br/>
+								Some motors (Servos) have their positions controlled with these waves.
+								<br/>
+								<a target = "_blank" href ="https://en.wikipedia.org/wiki/Servo_control">
+								https://en.wikipedia.org/wiki/Servo_control
+								</a>
+                            </p>
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('PWMGraph.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/PWMGraph.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>LED PWM code</b>
+                                <br/>
+                                In Arduino, the exits marked with ~ (~9, ~10, etc) allow pwm.
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('PWMLedCircuit.png');">
+                                    <img class = "Image" src = "Resources/imgs/PWMLedCircuit.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "3rdCircuit">
+                            <td colspan = "2">
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">void setup(){</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(9, OUTPUT);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop(){</span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(9, HIGH);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(100);</span></span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(9, LOW);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(900);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            //This is an example of a squarewave with 10% duty cicle
+                                            <br/>
+                                            //and a 1 second period
+                                            <br/>
+                                            //(remember that delay() works in milliseconds)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style = "width: 60%;">
+                                Unlike with digitalWrite(), which only enables square waves, analogWrite() allows all sorts of waves since it can provide more values than just off and on (0V or 5V).
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">int PWM = 0;</span></li>
+                                                <li><span class = "left">void setup(){</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(9, OUTPUT);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop(){</span></li>
+                                                <li><span class = "left"><span class = "left">while(PWM &#8249 150){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">analogWrite(9, PWM++);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">delay(5);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left"><span class = "left">PWM = 0;</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(100);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            //Which wave form do you think this code snippet will produce?
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "ButtonDiv" id = "Button4Div"></div>
+                                            <br/>
+                                            <button class = "Button" id = "Button4" onclick = "Appear('Button4','Button4Div','A Sawtooth wave! You can reproduce virtually any wave with an arduino.')">Press to find out</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('Waveforms.png');">
+                                    <img class = "Image" src = "Resources/imgs/Waveforms.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "17">
+                            <td>
+                                <font class = "title NormalText">
+                                    Using a 7 segment digit
+                                    <img class = "IconImage" src = "Resources/imgs/7SegmentDigit.jpg">
+                                </font>
+                                <p>
+                                    7 Segment digits are nothing more than a bunch of LEDs strapped together. To get one to be turned on, simply set the corresponding pin to HIGH (or LOW, depending on the manufacturer, the LEDs may have a common cathode instead of the anode).
+                                    <br/>
+                                </p>
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('7SegmentDigitComposition.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/7SegmentDigitComposition.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "3rdCircuit">
+                            <td colspan = "2">
+                                <b>7 segment digit code</b>
+                                <br/>
+                                Do not be scared by the code. If you are not familiar with coding in general, just be sure you understand what is going on. If you have any doubts, <b><u>ask us</u></b>.
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">int Numbers[10][7] = {</span></li>
+                                                <li><span class = "left">{1,1,1,1,1,1,0},</span></li>
+                                                <li><span class = "left">{0,1,1,0,0,0,0},</span></li>
+                                                <li><span class = "left">{1,1,0,1,1,0,1},</span></li>
+                                                <li><span class = "left">{1,1,1,1,0,0,1},</span></li>
+                                                <li><span class = "left">{0,1,1,0,0,1,1},</span></li>
+                                                <li><span class = "left">{1,0,1,1,0,1,1},</span></li>
+                                                <li><span class = "left">{1,0,1,1,1,1,1},</span></li>
+                                                <li><span class = "left">{1,1,1,0,0,0,0},</span></li>
+                                                <li><span class = "left">{1,1,1,1,1,1,1},</span></li>
+                                                <li><span class = "left">{1,1,1,0,0,1,1}</span></li>
+                                                <li><span class = "left">};</span></li>
+                                                <li><span class = "left">int Entrances[] = {20,21,22,23,24,25,26,27,28,29};</span></li>
+                                                <li><span class = "left">void Print(int Number){</span></li>
+                                                <li><span class = "left"><span class = "left">for(int i = 0; i &#8249 7; i++){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">digitalWrite(Entrances[i], Numbers[Number][i]);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void setup(){</span></li>
+                                                <li><span class = "left"><span class = "left">for(int i = 0; i &#8249 10; i++){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">pinMode(Entrances[i], OUTPUT);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop(){</span></li>
+                                                <li><span class = "left"><span class = "left">for(int i = 0; i &#8249 10; i++){</span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">Print(i);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left"><span class = "left">delay(5);</span></span></span></li>
+                                                <li><span class = "left"><span class = "left">}</span></span></li>
+                                                <li><span class = "left">}</span></li>
+
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            //Multi dimension matrices are very useful.
+                                            <br/>
+                                            //In this case, we are using one to store the connections that
+                                            <br/>
+                                            //need to be active to correctly form the standard 0 to 9 digits.
+                                            <br/>
+                                            //For instance, at position 0 is the "code" for the digit 0,
+                                            <br/>
+                                            //which is 1111110, corresponding to the sections abcdef being on
+                                            <br/>
+                                            //and the section g off, forming a 0
+                                            <br/>
+                                            //This is how you can create and access one.
+                                            <br/>
+                                            //Matrice indexes are as expected.
+                                            <br/>
+                                            //Var[][] = {
+                                            <br/>
+                                            //{[0][0] , [0][1] , [0][2] , [0][3] , [0][4] , [0][5] , [0][6]},
+                                            <br/>
+                                            //{[1][0] , [1][1] , [1][2] , [1][3] , [1][4] , [1][5] , [1][6]},
+                                            <br/>
+                                            //{[2][0] , [2][1] , [2][2] , [2][3] , [2][4] , [2][5] , [2][6]},
+                                            <br/>
+                                            //{[3][0] , [3][1] , [3][2] , [3][3] , [3][4] , [3][5] , [3][6]},
+                                            <br/>
+                                            //{[4][0] , [4][1] , [4][2] , [4][3] , [4][4] , [4][5] , [4][6]},
+                                            <br/>
+                                            //{[5][0] , [5][1] , [5][2] , [5][3] , [5][4] , [5][5] , [5][6]},
+                                            <br/>
+                                            //{[6][0] , [6][1] , [6][2] , [6][3] , [6][4] , [6][5] , [6][6]},
+                                            <br/>
+                                            //{[7][0] , [7][1] , [7][2] , [7][3] , [7][4] , [7][5] , [7][6]},
+                                            <br/>
+                                            //{[8][0] , [8][1] , [8][2] , [8][3] , [8][4] , [8][5] , [8][6]},
+                                            <br/>
+                                            //{[9][0] , [9][1] , [9][2] , [9][3] , [9][4] , [9][5] , [9][6]}
+                                            <br/>
+                                            //};
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Here we are simply scrolling throught the digits from 0 to 9
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+						<tr id = "A11">
+                            <td>
+                                <font class = "title NormalText">
+                                    LCD Display
+                                    <img class = "IconImage" src = "Resources/imgs/Watch.jpg">
+                                </font>
+                                <p>
+                                A liquid-crystal display (LCD) is a flat-panel display or other electronically modulated optical device that uses the light-modulating properties of liquid crystals.
+                                <br/>
+                                These crystals are electrically volatile, transmit and change polarized light as it passes through them and their molecules tend to maintain their orientation, like the molecules in a solid, but also move around to different positions, like the molecules in a liquid. In short, LCD's are composed by two, parallel grids with perpendicular orientation, with LCs in between them. When not exposed to an electric field, the crystals tend to align with the grooves on the grids, creating a spiral structure that bends light by 90º, allowing it to pass through the second grid. When exposed to an electric field (in this case vertical in relation to the plaques), they line up with the field and do not bend the light, preventing it from crossing the second grid.
+                                <br/>
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                LCD Working Principle
+                                <div class = "Zoomable" onclick = "Zoom('LCD-Principle.gif');">
+                                    <img class = "Image" src = "Resources/imgs/LCD-Principle.gif">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('LCD1.png');">
+                                    <img class = "Image" src = "Resources/imgs/LCD1.png">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('LCD_LightDeflection.gif');">
+                                    <img class = "Image" src = "Resources/imgs/LCD_LightDeflection.gif">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A12">
+                            <td>
+                                <font class = "title NormalText">1602a
+                                    <img class = "IconImage" src = "Resources/imgs/LCD.jpg">
+                                </font>
+                                <p>
+                                    In this worshop, we will use the 1602a LCD Display, which is a 16 column, 2 line LCD which supports 4-bit or 8-bit codes. We will be using 4-bits to communicate (the difference between 4-bit and 8-bit is that in 4-bit mode you have to send two commands, which wont make much difference because transmission time really isn't the bottleneck here. LCD (the display, not the electronics) is slow. As such, it usually takes a few ms to update the actual image - much much slower than your data transmission time - you can easily send 16 bytes of data in 1ms in 4-bit mode).<br/>
+                                    The LCDs have a parallel interface, meaning that the microcontroller has to manipulate several interface pins at once to control the display. The interface consists of the following pins:<br/><br/>
+                                    A register select (RS) pin that controls where in the LCD's memory you're writing data to. You can select either the data register, which holds what goes on the screen, or an instruction register, which is where the LCD's controller looks for instructions on what to do next.<br/>
+                                    A Read/Write (R/W) pin that selects reading mode or writing mode.<br/>
+                                    An Enable pin that enables writing to the registers 8 data pins (D0 -D7). The states of these pins (high or low) are the bits that you're writing to a register when you write, or the values you're reading when you read.<br/>
+                                    There's also a display constrast pin (Vo), power supply pins (+5V and Gnd) and LED Backlight (Bklt+ and BKlt-) pins that you can use to power the LCD, control the display contrast, and turn on and off the LED backlight, respectively.
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                <div class = "Zoomable" onclick = "Zoom('LCD-Display.png');">
+                                    <img class = "Image" src = "Resources/imgs/LCD-Display.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A13">
+                            <td colspan = "2">
+                                <table>
+                                    <tr>
+                                        <td style = "width: 50%;">
+                                            <b>LCD Circuit Example:</b>
+                                            <br/>
+                                            For our first circuit, we are going to connect the Arduino to the LCD and print a "Hello World" (or whatever you prefer) message on screen.
+                                            <br/>
+                                            We will be using a potenciometer to regulate the screen contrast, but a 10K/20K resistor would do just fine.
+                                            <table style="border: medium none; border-collapse: collapse;" cellspacing="0" cellpadding="0" border="1" width="100%" align="center">
+                                                <tr>
+                                                    <td>Pin No</td>
+                                                    <td>Function</td>
+                                                    <td>Name</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Ground (0V)</td>
+                                                    <td>Ground</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Supply voltage; 5V (4.7V – 5.3V)</td>
+                                                    <td>Vcc<sub>CC</sub></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Contrast adjustment; through a variable resistor</td>
+                                                    <td>V<sub>EE</sub></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Selects command register when low; and data register when high</td>
+                                                    <td>Register Select</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Low to write to the register; High to read from the register</td>
+                                                    <td>Read/write</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>Sends data to data pins when a high to low pulse is given</td>
+                                                    <td>Enable</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td rowspan="4">8-bit data pins</td>
+                                                    <td>DB0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>DB1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>DB2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>DB3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td rowspan="4">4-bit and 8-bit data pins</td>
+                                                    <td>DB4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>DB5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>13</td>
+                                                    <td>DB6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>14</td>
+                                                    <td>DB7</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>15</td>
+                                                    <td>Backlight V<sub>CC</sub> (5V)</td>
+                                                    <td>Led+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>16</td>
+                                                    <td>Backlight Ground (0V)</td>
+                                                    <td>Led-</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <div class = "Zoomable" onclick = "Zoom('LCD_Circuit.png');">
+                                                <img class = "Image" src = "Resources/imgs/LCD_Circuit.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan = "2">
+                                <b>LCD write code</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">#include &lt;LiquidCrystal.h&gt;</span></li>
+                                                <li><span class = "left">LiquidCrystal lcd(7, 8, 9, 10, 11 , 12);</span></li>
+                                                <li><span class = "left">void setup() {</span></li>
+                                                <li><span class = "left"><span class = "left">lcd.begin(16, 2);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop() {</span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("Hello");</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(100);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("World");</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(500);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            //Include appropriate library
+                                            <br/>
+                                            //Create LiquidCrystal varable with appropriate pin format.
+                                            <br/>
+                                            <br/>
+                                            //Initialize LCD interface (16 by 2).
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Set the cursor on the second row, first column.
+                                            <br/>
+                                            //Write message
+                                            <br/>
+                                            //Wait 100 ms
+                                            <br/>
+                                            //Set the cursor on the second row, first column again.
+                                            <br/>
+                                            //Write over the previous message
+                                            <br/>
+                                            //Wait 100 ms
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr id = "A14">
+                            <td>
+                                <font class = "title NormalText">Piezo
+                                    <img class = "IconImage" src = "Resources/imgs/Piezo.jpg">
+                                </font>
+                                <p>
+                                    Piezoelectricity is the electric charge that accumulates in certain solids materials (such as crystals, certain ceramics, and biological matter such as bone, DNA and various proteins) in response to applied mechanical stress.<br/>
+                                    Therefore, the piezoelectric effect can be used to convert mechanical stress into an electric response that can be used in a circuit (to measure changes in pressure, acceleration, temperature, strain, or force)<br/>
+                                    They can also be used to convert voltage into a mechanical response (like a force or a vibration)<br/>
+                                    Piezos can also be found in Lighters (in lighters, a spark is created by striking metal against a flint, or by pressing a button that compresses a piezoelectric crystal (piezo ignition)), Ultrasonic Welding, Microphones, Buzzers, beepers in watches and other electronic devices, Combustion Launchers (a type of potato cannon) as an igniter, among many others.<br/>
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                <div class = "Zoomable" onclick = "Zoom('PiezoElectricity.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/PiezoElectricity.jpg">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('Lighter_diagram.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/Lighter_diagram.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A15">
+                            <td>
+                                <font class = "title NormalText">(Ultrasonic) Distance sensor
+                                    <img class = "IconImage" src = "Resources/imgs/HC-SR04.jpg">
+                                </font>
+                                <p>
+                                    Ultrasonic sensors work on a principle similar to radar or sonar. They generate high frequency sounds and calculate the time interval between sending the signal and receiving the echo. Therefore, ultrasonic sensor can be used to measure distance.<br/>
+                                    The HC-SR04 ultrasonic sensor consists of a transmitter, a receiver and a control module.
+                                    <br/>
+                                    To operate the HC-SR04, reproduce the following instructions:
+                                    <br/>
+                                </p>
+                                <ul>
+                                    <li>Reset the trigger pin (LOW).</li>
+                                    <li>Activate (HIGH) the trigger pin for 10us.</li>
+                                    <li>Wait for the echo.</li>
+                                    <li>Measure the echo signals' width (on which the rtt time is encoded).</li>
+                                    <li>Using the speed of sound (340m/s), calculate the distance to the object. (to get the result in seconds, and since we are using microseconds to count the time, D=0.017*T)</li>
+                                </ul>
+                            </td>
+                            <td class = "Center">
+                                <div class = "Zoomable" onclick = "Zoom('HC-SR04-Schematic.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/HC-SR04-Schematic.jpg">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('Ultra-Sonic-dimen.JPG');">
+                                    <img class = "Image" src = "Resources/imgs/Ultra-Sonic-dimen.JPG">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('HC-SR04.png');">
+                                    <img class = "Image" src = "Resources/imgs/HC-SR04.png">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('Working-of-HC-SR04-Ultrasonic-Sensor.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/Working-of-HC-SR04-Ultrasonic-Sensor.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A16">
+                            <td colspan = "2">
+                                <table>
+                                    <tr>
+                                        <td style = "width: 50%;">
+                                            <b>Distance Sensor Circuit Example:</b>
+                                            <br/>
+                                            Leaving the LCD from the previous circuit, as it is, lets connect the Arduino to the HC-SR04.
+                                            <br/>
+                                            There is no need for any component other than the Arduino, HC-SR04, breadboard and some jumpers.
+                                            <br/>
+                                            The connections are as follows:
+                                            <br/>
+                                            <ul>
+                                                <li>VCC -> +5V</li>
+                                                <li>Gnd -> Ground</li>
+                                                <li>Trig -> Output Pin</li>
+                                                <li>Echo -> Input Pin</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class = "Zoomable" onclick = "Zoom('HC-SR04_Circuit.png');">
+                                                <img class = "Image" src = "Resources/imgs/HC-SR04_Circuit.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan = "2">
+                                <b>HC-SR04 write code</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">#include &lt;LiquidCrystal.h&gt;</span></li>
+                                                <li><span class = "left">LiquidCrystal lcd(7, 8, 9, 10, 11 , 12);</span></li>
+                                                <li><span class = "left">void setup() {</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(5,OUTPUT);</span></span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(6,INPUT);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.begin(16, 2);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("Distance ");</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">unsigned long Distance = 0;</span></li>
+                                                <li><span class = "left">void loop() {</span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(2, LOW);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delayMicroseconds(2);</span></span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(2, HIGH);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delayMicroseconds(10);</span></span></li>
+                                                <li><span class = "left"><span class = "left">digitalWrite(2, LOW);</span></span></li>
+                                                <li><span class = "left"><span class = "left">Distance = 0.017*pulseIn(3, HIGH);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("_____");</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.print(String(Distance));</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.print("cm");</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(60);</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(440);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Prepare pin 2 to be used as an output (trigger)
+                                            <br/>
+                                            //Prepare pin 3 to be used as an input (echo)
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Initialize time storage variable
+                                            <br/>
+                                            <br/>
+                                            //Clear Trigger
+                                            <br/>
+                                            //Wait a couple of microseconds for the HC-SR04 to settle
+                                            <br/>
+                                            //Activate the trigger
+                                            <br/>
+                                            //Wait 10us
+                                            <br/>
+                                            //Clear Trigger
+                                            <br/>
+                                            Read Echo width
+                                            <br/>
+                                            Set cursor in the second line
+                                            <br/>
+                                            Clear previous readings
+                                            <br/>
+                                            Reset cursor in the second line
+                                            <br/>
+                                            Print the time
+                                            <br/>
+                                            <br/>
+                                            Wait 60ms (recommended HC-SR04 scanning frequency)
+                                            <br/>
+                                            Wait more so that we don't have too manye values that can fluctuate
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr id = "A17">
+                            <td>
+                                <font class = "title NormalText">1-Wire technology
+                                    <img class = "IconImage" src = "Resources/imgs/universal fibaro and Ds18B20-600x600.png">
+                                </font>
+<!--
+ 1-Wire Parasitic Power
+Page last updated 09 Jan 2010, by Petras Saduikis. 23 replies 1-wire, One Wire, Parasitic
+
+If anyone has problems getting their Maxim/Dallas DS18B20 or DS18S20 temperature sensors working using parasitic power you might be interested in this. For shorthand I will use sensor = DS18B20/DS18S20.
+
+There a two ways to run a 1-wire sensor: power the Vdd pin (with say 5 volts), or use parasitic power.
+
+The 3 wire solution (ground, data line (DQ), and Vdd) is straight forward, and requires a 4.7K ohm resistor between DQ and Vdd (known as a 'weak' pull-up). Software-wise the Convert and Read Scratchpad commands are seperated either by a.) the temperature conversion time (Tconvert) which varies according to measurement resolution for the DS18B20, typically 750ms for 12 bit resolution, and for the DS18S20; b.) after the Convert command, the device should respond by transmitting 0 while the temperature conversion is in progress and 1 when the conversion is done. Method b.) can't be done in parasitic mode.
+
+The 2 wire/parasitic power solution (aka 1-wire) uses ground and DQ. DQ still requries the 4.7K ohm weak pull-up resistor. However things change between issuing the convert command and the read scratchpad command. The sensor now requires a voltage of value Vdd (e.g. 5 volts) applied to the DQ pin for a period Tconvert (which is 750ms - see aboe), 10us after the convert command was issued. After 750ms the voltage is removed and the scratchpad command issued. During the 750ms a capacitor is charged on the chip and provides the power for the reading the temperature and storing it EEPROM. This may require a peak current of 1.5ms.
+
+Now if you ignore this and just have the 4.7K ohm pull-up, it won't work. Measuring the voltages across the pull-up (Vr) and DQ ((Vdq) gives (actual measurements here):
+
+Vdd = Vout from mbed board = 4.8V
+
+Vr max = 2.96V gives Vdq = 1.84V     Vr min = 0.26V gives Vdq = 4.54V
+
+max current = 0.63mA    min current = 0.055mA
+
+As you can see in practice, current drawn is a lot less, but enough to drop Vdq down to 1.84V. This voltage is the pull-up supply voltage (Vpu), and for parasitic power this should be between 3 and 5.5 volts. Clearly this won't work.
+
+To get 3 volts across the DQ line, 4.8 - 3 = 2.8 volts should be dropped across the pull-up resistor. With a typical current of 0.63mA, this give a value of 2.8/0.63 = 2.9K ohms. The nearest E12 series resistor is either 2.7K or 3.3K ohms.
+
+Using a 3.3K ohm pull-up  we get:
+
+Vr max = 2.15V / Vdq = 2.65V   Vr min = 0.18V / Vdq = 4.62V
+
+with current approx. as above.
+
+Now this should still be too low but I've found using a 3.3K ohm pull-up works, and is enough for parasitic power operation.This is not spec sheet compliant but does for the curious who want to get their breadboard model working.
+
+Final thoughts:
+
+1. Don't use parasitic power. Go ahead and go crazy and run a whole extra wire out to your temperature sensor. Its easier.
+
+2. For breadboarding parasitic power try a 3.3K ohm or 2.7K ohm pull-up rather than the 4.7K ohm recommended. I've found both work. Don't forget to add a 750ms wait between the covert and read scratchpad commands (note: the wait period is same for non-parasitic if you are not reading the bus to see when it goes high).
+
+3. If you are serious about using parasitic power for whatever reason, find a transistor circuit to apply Vdd to the DQ line for the required period. This will of course require another output pin on your processor to trigger it. The spec sheet mentions a MOSFET. As 5V x 1.5mA (max) = 7.5mW is disappated, the MOSFET is overkill.
+-->
+                                <p>
+                                    The 1-Wire working principle is the use of a single data line (plus ground reference).<br/>
+                                    Every 1-Wire network is composed by a 1-wire <b>Master</b>, which can be a PC, microcontroller or some types of integrated circuits, and 1 or more 1-Wire <b>slaves</b>.<br/>
+                                    When the network is online, the Master identifies all Slaves through their unique, unalterable, factory-programmed, 64-bit ID (identification number).<br/>
+                                     1-Wire devices can be grouped by their functions into several categories:
+                                </p>
+                                <ul>
+                                    <li>Identification only</li>
+                                    <li>Identification plus control</li>
+                                    <li>Identification plus temperature</li>
+                                    <li>Identification plus time</li>
+                                    <li>Identification plus NV SRAM</li>
+                                    <li>Identification plus (one time programmable) OTP EPROM</li>
+                                    <li>Identification plus EEPROM</li>
+                                    <li>Identification plus SHA-1 secure EEPROM</li>
+                                    <li>Identification plus logging</li>
+                                </ul>
+                                <p>
+                                    Most 1-Wire devices have no pin for power supply, they take their energy from the 1-Wire bus (parasitic supply) wich they store in a capacitor.<br/>
+                                    In this workshop, we will be using the DS1820 family (DS18S20, DS18B20 or others).<br/>
+                                    
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                <div class = "Zoomable" onclick = "Zoom('1-Wire-ROM.png');">
+                                    <img class = "Image" src = "Resources/imgs/1-Wire-ROM.png">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('1-Wire-Circuit.gif');">
+                                    <img class = "Image" src = "Resources/imgs/1-Wire-Circuit.gif">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A18">
+                            <td>
+                            <font class = "title NormalText">
+                                    Temperature Sensor (DS1820)<img class = "IconImage" src = "Resources/imgs/DS1820.jpg">
+                            </font>
+                            <p>
+                                The DS18B20 Digital Thermometer provides 9 to 12-bit (configurable) temperature readings which indicate the temperature of the device. The DS18B20 communicates over a 1-Wire, and can derive power directly from the data line (“parasite power”) or through an external power supply. Features:
+                            </p>
+                            <ul>
+                                <li>Power supply range is 3.0V to 5.5V</li>
+                                <li>Measures temperatures from -55°C to +125°C. Fahrenheit equivalent is -67°F to +257°F</li>
+                                <li>±0.5°C accuracy from -10°C to +85°C</li>
+                                <li>Converts 12-bit temperature to digital word in 750 ms (max.)</li>
+                                <li>Can be powered from data line</li>
+                                <li>Alarm search command identifies and addresses devices whose temperature is outside of programmed limits (temperature alarm condition)</li>
+                            </ul>
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('DS1820_Interface.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/DS1820_Interface.jpg">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('DS1820_WorkingPrinciple.png');">
+                                    <img class = "Image" src = "Resources/imgs/DS1820_WorkingPrinciple.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A19">
+                            <td>
+                                <b>Temperature Sensor Circuit Example:</b>
+                                <br/>
+                                Now, using the adequate libraries, lets read the temperature through the sensor.
+                            </td>
+                            <td>
+                                <div class = "Zoomable" onclick = "Zoom('DS1820_Circuit.png');">
+                                    <img class = "Image" src = "Resources/imgs/DS1820_Circuit.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan = "2">
+                                <b>1-Wire slave (DS1820 family) code</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">#include &lt;LiquidCrystal.h&gt;</span></li>
+                                                <li><span class = "left">#include &lt;OneWire.h&gt;</span></li>
+                                                <li><span class = "left">#include &lt;DallasTemperature.h&gt;</span></li>
+                                                <li><span class = "left">OneWire oneWire(4);</span></li>
+                                                <li><span class = "left">DallasTemperature sensors(&oneWire);</span></li>
+                                                <li><span class = "left">LiquidCrystal lcd(7, 8, 9, 10, 11 , 12);</span></li>
+                                                <li><span class = "left">void setup() {</span></li>
+                                                <li><span class = "left"><span class = "left">sensors.begin();</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.begin(16, 2);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("Temp ");</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">void loop() {</span></li>
+                                                <li><span class = "left"><span class = "left">sensors.requestTemperatures();</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(5,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("       ");</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(5,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.print(String(sensors.getTempCByIndex(0)));</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(1000);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Setup a oneWire instance to communicate with any OneWire devices  
+                                            <br/>
+                                            //Pass our oneWire reference to Dallas Temperature. It does all the calculations and stuff
+                                            <br/>
+                                            <br/>
+                                            //Initialize library
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Send the command to get temperatures
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //1-Wire supports multiple slaves, therefore the library returns an array with the value of the onesfound
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr id = "A20">
+                            <td>
+                                <font class = "title NormalText">Stepper Motors
+                                    <img class = "IconImage" src = "Resources/imgs/Stepper_Motor_Icon.jpg">
+                                </font>
+                                <p>
+                                    A stepper motor is a brushless DC electric motor that divides a full rotation into a number of equal steps. The motor's position can then be commanded to move and hold at one of these steps without any position sensor for feedback (an open-loop controller), as long as the motor is carefully sized to the application in respect to torque and speed.<br/>
+                                    There are unipolar and bipolar stepper motors. The unipolar stepper motor operates with one winding with a center tap per phase. Each section of the winding is switched on for each direction of the magnetic field, making it easier to operate.<br/>
+                                    With bipolar stepper motors there is only a single winding per phase. The driving circuit needs to be more complicated to reverse the magnetic pole, which is usually done with an H-bridge arrangement.<br/>
+                                    We will be using 2 phase (4-wire) bipolar motors.
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                Half Stepping
+                                <div class = "Zoomable" onclick = "Zoom('Stepper_Motor_Half_Stepping.gif');">
+                                    <img class = "Image" src = "Resources/imgs/Stepper_Motor_Half_Stepping.gif">
+                                </div>
+                                L298N Driver Board
+                                <div class = "Zoomable" onclick = "Zoom('Stepper_Motor.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/Stepper_Motor.jpg">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('StepperMotor_Animation.gif');">
+                                    <img class = "Image" src = "Resources/imgs/StepperMotor_Animation.gif">
+                                </div>
+                                Brushed DC Motor
+                                <div class = "Zoomable" onclick = "Zoom('Brushed_DC_Motor.png');">
+                                    <img class = "Image" src = "Resources/imgs/Brushed_DC_Motor.png">
+                                </div>
+                                Unipolar VS Bipolar
+                                <div class = "Zoomable" onclick = "Zoom('UnipolarVSBipolar.png');">
+                                    <img class = "Image" src = "Resources/imgs/UnipolarVSBipolar.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A21">
+                            <td>
+                                <font class = "title NormalText">L298N
+                                    <img class = "IconImage" src = "Resources/imgs/L298N_icon.jpe">
+                                </font>
+                                <p>
+                                    The L298N is a dual-bridge, meaning it allows current to flow both ways through two separate loads (Outputs A and B). These circuits are often used in robotics and other applications to allow DC motors to run forwards or backwards (or to control stepper motors).
+                                </p>
+                            </td>
+                            <td class = "Center">
+                                
+                                <div class = "Zoomable" onclick = "Zoom('H-Bridge.png');">
+                                    <img class = "Image" src = "Resources/imgs/H-Bridge.png">
+                                </div>
+                                <div class = "Zoomable" onclick = "Zoom('L298N.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/L298N.jpg">
+                                </div>
+                                L298N Driver Board
+                                <div class = "Zoomable" onclick = "Zoom('L298N_Driver_Board.jpg');">
+                                    <img class = "Image" src = "Resources/imgs/L298N_Driver_Board.jpg">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "A22">
+                            <td colspan = "2">
+                                <b>LCD write code</b>
+                                <table class = "CodeBlock">
+                                    <tr>
+                                        <td colspan = "2">
+                                            <div class = "CodeBlockTitle">Arduino C Code</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "Code">
+                                            <ol>
+                                                <li><span class = "left">#include &lt;LiquidCrystal.h&gt;</span></li>
+                                                <li><span class = "left">#include &lt;Stepper.h&gt;</span></li>
+                                                <li><span class = "left">LiquidCrystal lcd(7, 8, 9, 10, 11 , 12);</span></li>
+                                                <li><span class = "left">Stepper stepper(200, 2, 3, 4, 5);</span></li>
+                                                <li><span class = "left">void setup() {</span></li>
+                                                <li><span class = "left"><span class = "left">pinMode(A2,INPUT);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.begin(16, 2);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("Rot: ");</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(0,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("Cur: ");</span></span></li>
+                                                <li><span class = "left"><span class = "left">stepper.setSpeed(30);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                                <li><span class = "left">int Distance = 0;</span></li>
+                                                <li><span class = "left">int previous = 0;</span></li>
+                                                <li><span class = "left">void loop() {</span></li>
+                                                <li><span class = "left"><span class = "left">Distance = (int)((float)analogRead(A2)*200/1023);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(6,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("       ");</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(6,0);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.print(Distance);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(6,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.write("           ");</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.setCursor(6,1);</span></span></li>
+                                                <li><span class = "left"><span class = "left">stepper.step(Distance - previous);</span></span></li>
+                                                <li><span class = "left"><span class = "left">lcd.print(Distance-previous);</span></span></li>
+                                                <li><span class = "left"><span class = "left">previous = Distance;</span></span></li>
+                                                <li><span class = "left"><span class = "left">delay(100);</span></span></li>
+                                                <li><span class = "left">}</span></li>
+                                            </ol>
+                                        </td>
+                                        <td class = "Comment">
+                                            <br/>
+                                            //Include appropriate library
+                                            <br/>
+                                            <br/>
+                                            //Initialize the stepper library on pins 2 through 5:
+                                            <br/>
+                                            <br/>
+                                            //Start pin A2 as input
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Set motor RPM
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Read potentiometer. analogRead returns int(0 to 1023),
+                                            <br/>
+                                            //200 is the ammount of steps per rotation
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            //Only rotate the difference in steps
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+		<h2>Disclaimer</h2>
+		<p>Although the text and code was written by me, most of the images come from external websites and I hold no claim to them</p>
+		<h2>ToDo</h2>
+		<p>Add some datasheets</p>
+    </body>
+</html>
